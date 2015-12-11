@@ -66,14 +66,15 @@ def convert_to_raw(file_series, file_events):
 
     raw = RawArray(data,info,verbose=False)
 
-    return raw
-    '''
-
     print raw
     print raw[0:]
     print raw[0][0]
     print raw[0][1]
-    '''
+
+    return raw
+
+    
+
 
 
 
@@ -94,8 +95,8 @@ if __name__ == "__main__":
     for s in subjects:
         print "hello %s" %s
         #print "/Users/Bhargav/Documents/Data_mining/EEG_data/train/subj%d_series%d_events.csv"
-        filepath_series =  glob('/Users/Bhargav/Documents/Data_mining/EEG_data/train/subj%d_series*_data.csv' % (s))
-        filepath_events = glob("/Users/Bhargav/Documents/Data_mining/EEG_data/train/subj%d_series*_events.csv" % (s))
+        filepath_series =  glob('/Users/aanarra/School/Pattern\ Recognition\ and\ Data\ Mining/EegHandRecognition/train/subj%d_series*_data.csv' % (s))
+        filepath_events = glob("/Users/aanarra/School/Pattern\ Recognition\ and\ Data\ Mining/EegHandRecognition/train/subj%d_series*_events.csv" % (s))
 
 
         raw = [convert_to_raw(f,f1) for f,f1 in zip(filepath_series,filepath_events)]
@@ -129,33 +130,3 @@ if __name__ == "__main__":
         raw._data[pick_ch] = np.array(Parallel(n_jobs=-1)(delayed(lfilter)(b,a,raw._data[i]) for i in pick_ch))
 
         print "After: ", raw._data[pick_ch]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
