@@ -87,7 +87,6 @@ for(i in 1:num_subjects) {
   rm(list_eventMatrix, list_dataMatrix, d, e, f, inTrain)
 }
 
-rm(d, e, f, inTrain)
 
 #Readin in the testing data
 for(i in 1:num_test_subjects) {
